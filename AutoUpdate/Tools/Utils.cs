@@ -7,6 +7,5 @@ namespace Tools
     /// </summary>
     public static class Utils
     {
-       
     }
 }
