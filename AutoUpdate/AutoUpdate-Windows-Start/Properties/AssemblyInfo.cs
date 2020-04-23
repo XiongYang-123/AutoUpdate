@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("AutoUpdate-Windows")]
+[assembly: AssemblyTitle("AutoUpdate-Windows-Start")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("AutoUpdate-Windows")]
+[assembly: AssemblyProduct("AutoUpdate-Windows-Start")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("8dde30db-4fa9-42e9-81bd-0f2d7c11cb03")]
+[assembly: Guid("4cdf7207-7671-4462-80a3-dc5a9ab35921")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

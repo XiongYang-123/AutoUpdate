@@ -86,6 +86,10 @@ namespace AutoUpdateServer
             ver.InnerText = SOP.Config.Version;
             root.AppendChild(ver);
 
+            XmlNode start = xmlDoc.CreateElement("Start");
+            start.InnerText = Path.GetFileName(SOP.StartPath);
+            root.AppendChild(start);
+
             XmlNode update = xmlDoc.CreateElement("IsUpdate");
             update.InnerText = SOP.Config.IsUpdate.ToString();
             root.AppendChild(update);
