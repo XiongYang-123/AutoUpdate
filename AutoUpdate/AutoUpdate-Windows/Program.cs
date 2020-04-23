@@ -14,11 +14,12 @@ namespace AutoUpdate_Windows
         [STAThread]
         static void Main(string[] args)
         {
-            if (args != null && args.Length == 1)
+            //if (args != null && args.Length == 1)
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainForm(args[0]));
+                Application.Run(new MainForm(""));
+               // Application.Run(new MainForm(args[0]));
             }
         }
     }
