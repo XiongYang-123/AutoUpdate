@@ -63,7 +63,7 @@ namespace AutoUpdateServer
                 lfs.Add(new FileConfig()
                 {
                     MD5 = MD5.GetMD5HashFromFile(file),
-                    Path = GetRelativePath(SOP.StartPath, file),
+                    Path = SOP.StartPath== file? Path.GetFileName(file) : GetRelativePath(SOP.StartPath, file),
                     FileName = Path.GetFileName(file)
                 });
                 this.Invoke((Action)delegate { label2.Text = fileVersionInfo.FileVersion; label1.Text = Path.GetFileName(file); });

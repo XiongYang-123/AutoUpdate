@@ -18,11 +18,12 @@ namespace AutoUpdate_Windows_Start
         ///  开始检查更新
         /// </summary>
         /// <param name="uri">服务器对应url</param>
-        public void Update(Uri uri)
+        public static void Update(Uri uri)
         {
-            if (File.Exists("AutoUpdate.exe"))
+            if (File.Exists("AutoUpdate-Windows.exe"))
             {
                 string myver = Application.ProductVersion;
+                Console.WriteLine(myver);
                 XDocument xd = ReadXml(uri);
                 string serserver = xd.Root.Element("Version").Value;
                 if (IsNendUpdate(myver, serserver))
@@ -43,13 +44,13 @@ namespace AutoUpdate_Windows_Start
             }
         }
 
-        public void StartUpdate(Uri uri)
+        private static void StartUpdate(Uri uri)
         {
-            Process.Start("AutoUpdate.exe", uri.ToString());
+            Process.Start("AutoUpdate-Windows.exe", uri.ToString());
             Application.Exit();
             Environment.Exit(0);
         }
-        public XDocument ReadXml(Uri url)
+        private static XDocument ReadXml(Uri url)
         {
             try
             {
@@ -60,7 +61,9 @@ namespace AutoUpdate_Windows_Start
 
                 WebResponse wr = req.GetResponse();
                 Stream rs = wr.GetResponseStream();
-                return XDocument.Load(rs);
+                XDocument xd= XDocument.Load(rs);
+                rs.Close();
+                return xd;
             }
             catch (Exception ex)
             {
@@ -68,8 +71,7 @@ namespace AutoUpdate_Windows_Start
                 return null;
             }
         }
-
-        public bool IsNendUpdate(string myver, string server)
+        private static bool IsNendUpdate(string myver, string server)
         {
             int[] myversion = myver.Split('.').ToList().Select(i => int.Parse(i)).ToArray();
             int[] serverversion = server.Split('.').ToList().Select(i => int.Parse(i)).ToArray();
